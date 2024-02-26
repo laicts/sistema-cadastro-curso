@@ -2,7 +2,7 @@
 {% load bootstrap5 %}
 {% block principal %}
 
-  <h1 class="text-body-emphasis">Cursos online</h1>
+  <h1 class="text-body-emphasis">Cadastro de cursos</h1>
 
   {% if sucesso %}
     <p class="alert alert-success">Curso cadastro com sucesso!</p>
@@ -15,6 +15,15 @@
     <button type="submit" class="btn btn-primary btn-block">Inserir curso</button>
     
   </form>
+
+<br>
+  <h1> Cursos cadastrados </h1>
+</br>
+
+{% for curso in cursos %}
+  <p>{{curso.titulo}}</p>
+{% endfor %}
+
  
   {% endif %}
 {% endblock %}
