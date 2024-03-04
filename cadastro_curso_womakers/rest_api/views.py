@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
+from cursos.models import Curso
+from rest_api.serializers import CursoModelSerializer
 
 # Create your views here.
 
@@ -10,3 +13,7 @@ def hello_world(request):
         return Response({'message': f'Hello, {request.data.get("name")}'})
     return Response({'Hello': 'World API'})
 
+
+class CursoModelViewSet(ModelViewSet):
+    queryset = Curso.objects.all()
+    serializer_class = CursoModelSerializer
